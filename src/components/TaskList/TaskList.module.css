@@ -1,0 +1,18 @@
+.taskList {
+    border-radius: 8px;
+    border-top: 2px solid var(--gray-400);
+}
+
+.emptyContainer {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+    flex-direction: column;
+    color: var(--gray-300);
+}
+
+.emptyContainer img {
+    margin-bottom: 1rem;
+}

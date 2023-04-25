@@ -4,6 +4,7 @@ import { TaskInput } from './components/TaskInput';
 
 import styles from './App.module.css';
 import { ChipText } from './components/ChipText';
+import { TaskList } from './components/TaskList';
 
 function App() {
 
@@ -26,6 +27,8 @@ function App() {
             />
 
           </div>
+
+          <TaskList />
 
         </div>
       </div>
