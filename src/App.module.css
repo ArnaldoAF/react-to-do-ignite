@@ -7,6 +7,19 @@
     flex: 1;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     max-width: 46rem;
+    width: 100%;
     margin: auto;
+}
+
+.listContainer {
+    margin-top: 4rem;
+    width: 100%;
+}
+
+.chipContainer {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
 }

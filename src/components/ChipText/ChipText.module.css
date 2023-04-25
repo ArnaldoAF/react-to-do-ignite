@@ -1,0 +1,20 @@
+.chipText {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.label {
+    color: var(--blue);
+}
+
+.labelPurple {
+    color: var(--purple);
+}
+
+.chip {
+    background: var(--gray-400);
+    color: var(--gray-200);
+    border-radius: 16px;
+    padding: 0.125rem 0.5rem;
+    font-size: 12px;
+}
