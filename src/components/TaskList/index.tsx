@@ -16,11 +16,14 @@ export function TaskList(props: TaskListProps) {
         <div className={styles.taskList}>
             {tasks.map(task => <Task task={task} handleCheck={handleCheck} handleDelete={handleDelete}/>)}
             
-            <div className={styles.emptyContainer}>
+            {tasks.length == 0 && (
+                <div className={styles.emptyContainer}>
                 <img src={Clipboard} alt="logo" />
                 <strong>Você ainda não tem tarefas cadastradas</strong>
                 <p>Crie tarefas e organize seus itens a fazer</p>
             </div>
+            )}
+            
         </div>
     )
 }
