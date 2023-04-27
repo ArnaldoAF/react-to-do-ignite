@@ -8,35 +8,6 @@ import { ChipText } from './components/ChipText';
 import { TaskList } from './components/TaskList';
 import TaskInterface from './interfaces/Task';
 
-
-const taskTempLocalList = [
-  {
-    id: 0,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor condimentum malesuada. Vestibulum fringilla, nisl.",
-    checked: false
-  },
-  {
-    id: 1,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor condimentum malesuada. Vestibulum fringilla, nisl.",
-    checked: true
-  },
-  {
-    id: 2,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor condimentum malesuada. Vestibulum fringilla, nisl.",
-    checked: false
-  },
-  {
-    id: 3,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor condimentum malesuada. Vestibulum fringilla, nisl.",
-    checked: true
-  },
-  {
-    id: 4,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor condimentum malesuada. Vestibulum fringilla, nisl.",
-    checked: false
-  }
-]
-
 function App() {
   const [taskLocalList, setTaskLocalList] = useState<TaskInterface[]>([]);
 
