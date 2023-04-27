@@ -5,10 +5,11 @@ import TaskInterface from '../../interfaces/Task';
 interface TaskProps {
     task: TaskInterface;
     handleCheck: (id: number) => void;
+    handleDelete: (id: number) => void;
 }
 
 export function Task(props: TaskProps) {
-    const { task, handleCheck} = props;
+    const { task, handleCheck, handleDelete} = props;
     const { id, description, checked} = task;
     return (
         <div className={styles.task}>
@@ -17,7 +18,7 @@ export function Task(props: TaskProps) {
                 <span className={styles.checkmark}></span>
             </label>
             <p className={checked ? styles.taskChecked : ''}>{description}</p>
-            <button><Trash size={24}/></button>
+            <button onClick={() => handleDelete(id)}><Trash size={24}/></button>
         </div>
     )
 }

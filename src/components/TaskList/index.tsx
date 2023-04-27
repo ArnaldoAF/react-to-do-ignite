@@ -6,14 +6,15 @@ import TaskInterface from '../../interfaces/Task';
 interface TaskListProps {
     tasks: TaskInterface[];
     handleCheck: (id: number) => void;
+    handleDelete: (id: number) => void;
 }
 
 export function TaskList(props: TaskListProps) {
-    const { tasks, handleCheck } = props;
+    const { tasks, handleCheck, handleDelete } = props;
 
     return (
         <div className={styles.taskList}>
-            {tasks.map(task => <Task task={task} handleCheck={handleCheck}/>)}
+            {tasks.map(task => <Task task={task} handleCheck={handleCheck} handleDelete={handleDelete}/>)}
             
             <div className={styles.emptyContainer}>
                 <img src={Clipboard} alt="logo" />

@@ -46,7 +46,12 @@ function App() {
         task.id == id ? {...task, checked: !task.checked} : {...task}
       )
     );
+  }
 
+  function deleteTask(id:number) {
+    setTaskLocalList(
+      taskLocalList.filter((task) => task.id != id)
+    );
   }
 
   return (
@@ -72,6 +77,7 @@ function App() {
           <TaskList 
             tasks={taskLocalList}
             handleCheck={checkTask}
+            handleDelete={deleteTask}
           />
 
         </div>
