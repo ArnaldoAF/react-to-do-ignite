@@ -13,8 +13,8 @@ export function Task(props: TaskProps) {
     const { id, description, checked} = task;
     return (
         <div className={styles.task}>
-            <label className={styles.container} onChange={() => handleCheck(id)}>
-                <input type="checkbox" checked={checked}/>
+            <label className={styles.container} >
+                <input type="checkbox" checked={checked} onChange={() => handleCheck(id)}/>
                 <span className={styles.checkmark}></span>
             </label>
             <p className={checked ? styles.taskChecked : ''}>{description}</p>
