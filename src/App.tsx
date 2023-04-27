@@ -1,13 +1,15 @@
 import './global.css';
+import { useState } from 'react';
 import { Header } from './components/Header';
 import { TaskInput } from './components/TaskInput';
 
 import styles from './App.module.css';
 import { ChipText } from './components/ChipText';
 import { TaskList } from './components/TaskList';
+import TaskInterface from './interfaces/Task';
 
 
-const taskLocalList = [
+const taskTempLocalList = [
   {
     id: 0,
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor condimentum malesuada. Vestibulum fringilla, nisl.",
@@ -36,8 +38,16 @@ const taskLocalList = [
 ]
 
 function App() {
+  const [taskLocalList, setTaskLocalList] = useState<TaskInterface[]>(taskTempLocalList);
 
-  
+  function checkTask(id:number) {
+    setTaskLocalList(
+      taskLocalList.map((task) => 
+        task.id == id ? {...task, checked: !task.checked} : {...task}
+      )
+    );
+
+  }
 
   return (
     <>
@@ -59,7 +69,10 @@ function App() {
 
           </div>
 
-          <TaskList tasks={taskLocalList}/>
+          <TaskList 
+            tasks={taskLocalList}
+            handleCheck={checkTask}
+          />
 
         </div>
       </div>
