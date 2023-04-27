@@ -1,11 +1,31 @@
 import styles from './taskInput.module.css';
-import Logo from '../../assets/logo.svg'
+import  { ChangeEvent, FormEvent, useState } from 'react';
 
-export function TaskInput() {
+interface TaskInputProps {
+    handleAddTask: (description: string) => void;
+}
+
+export function TaskInput(props: TaskInputProps) {
+    const {handleAddTask} = props;
+    const [newTask, setNewTask ] = useState('');
+
+    function handleSubmit(event: FormEvent) {
+        event.preventDefault();
+
+        setNewTask('');
+        handleAddTask(newTask);
+    }
+
     return (
-        <div className={styles.taskInput}>
-            <input type="text" placeholder='Adicione uma nova tarefa'/>
-            <button>Criar</button>
-        </div>
+        <form onSubmit={handleSubmit} className={styles.taskInput}>
+            <input 
+                type="text" 
+                placeholder='Adicione uma nova tarefa'
+                value={newTask}
+                onChange={(event: ChangeEvent<HTMLInputElement>) => setNewTask(event.target.value)}
+                required
+            />
+            <button type="submit">Criar</button>
+        </form>
     )
 }
