@@ -14,7 +14,7 @@ export function TaskList(props: TaskListProps) {
 
     return (
         <div className={styles.taskList}>
-            {tasks.map(task => <Task task={task} handleCheck={handleCheck} handleDelete={handleDelete}/>)}
+            {tasks.map(task => <Task task={task} handleCheck={handleCheck} handleDelete={handleDelete} key={task.id}/>)}
             
             {tasks.length == 0 && (
                 <div className={styles.emptyContainer}>

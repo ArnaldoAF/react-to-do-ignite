@@ -41,17 +41,26 @@ function App() {
   const [taskLocalList, setTaskLocalList] = useState<TaskInterface[]>(taskTempLocalList);
 
   function checkTask(id:number) {
-    setTaskLocalList(
-      taskLocalList.map((task) => 
-        task.id == id ? {...task, checked: !task.checked} : {...task}
-      )
-    );
+    const tempList = taskLocalList.map((task) => 
+    task.id == id ? {...task, checked: !task.checked} : {...task}
+    )
+
+    tempList.sort((a, b) => a.checked && !b.checked ? 1 : -1);
+    setTaskLocalList(tempList);
   }
 
   function deleteTask(id:number) {
     setTaskLocalList(
       taskLocalList.filter((task) => task.id != id)
     );
+  }
+
+  const tasksCreatedText = () =>  taskLocalList.length.toString();
+
+  const tasksFinishedText = () =>  {
+    const finishedNumber = taskLocalList.filter(task => task.checked).length;
+
+    return `${finishedNumber} de ${tasksCreatedText()}`
   }
 
   return (
@@ -63,12 +72,12 @@ function App() {
           <div className={styles.chipContainer}>
             <ChipText 
               label='Tarefas criadas'
-              value={taskLocalList.length.toString()}
+              value={tasksCreatedText()}
             />
 
             <ChipText 
               label='Concluídas'
-              value='0 de 0'
+              value={tasksFinishedText()}
               isPurple
             />
 
