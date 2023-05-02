@@ -1,5 +1,5 @@
 import styles from './TaskList.module.css';
-import Clipboard from '../../assets/clipboard.svg' 
+import Clipboard from '../../assets/clipboard.svg'
 import { Task } from '../Task';
 import TaskInterface from '../../interfaces/Task';
 
@@ -14,16 +14,16 @@ export function TaskList(props: TaskListProps) {
 
     return (
         <div className={styles.taskList}>
-            {tasks.map(task => <Task task={task} handleCheck={handleCheck} handleDelete={handleDelete} key={task.id}/>)}
-            
+            {tasks.map(task => <Task task={task} handleCheck={handleCheck} handleDelete={handleDelete} key={task.id} />)}
+
             {tasks.length == 0 && (
                 <div className={styles.emptyContainer}>
-                <img src={Clipboard} alt="logo" />
-                <strong>Você ainda não tem tarefas cadastradas</strong>
-                <p>Crie tarefas e organize seus itens a fazer</p>
-            </div>
+                    <img src={Clipboard} alt="logo" />
+                    <strong>Você ainda não tem tarefas cadastradas</strong>
+                    <p>Crie tarefas e organize seus itens a fazer</p>
+                </div>
             )}
-            
+
         </div>
     )
 }
